@@ -1,0 +1,3 @@
+1. It is a well-established fact that the sum of two even numbers always results in an even number (Proof for reference: https://www.chilimath.com/lessons/basic-math-proofs/sum-of-two-even-numbers-is-even/).
+2. Consequently, determining whether a number can be expressed as the sum of two even numbers (a, b) becomes a matter of checking whether it is even or odd.
+3. But, there's one important base case to remember: because the values of a and b start from 1, any number that's less than or equal to 2 can't be expressed as the sum of two even numbers.

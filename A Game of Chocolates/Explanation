@@ -3,4 +3,12 @@
     b. Case 2 : even number of chocolates -> Friend 2 wins
 2. In a scenario with n bags:
     a. If all bags contain an even number of chocolates, Friend 2 wins by taking chocolates from the same bags as Friend 1.
-    b. If there's at least one bag with an odd number of chocolates, Friend 1 wins by exclusively taking chocolates from the odd bags.
+    b. If there's at least one bag with an odd number of chocolates, Friend 1 wins. Proof is given below.
+
+Proof for 2b:
+
+Assume there are some odds and some evens.
+
+1. First friend removes from all the odd bags, making every bag even
+2. Second friend now has to remove from an even bag, creating an odd bag.
+3. This loop goes on until bags have only 1 chocolate in it, first friend removes all 1s and wins.

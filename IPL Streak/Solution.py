@@ -1,38 +1,25 @@
 def solution(n,s):
-
-    p=[]
-    c=1
-    for i in range(n-1):
-        if s[i]==s[i+1] :
-            c+=1
-        else :
-            p.append(c)
-            c=1
-    p.append(c)
-
-    ans=0
-    ind=0
-    if s[0]=='1':
-        ind=1
-
-    while ind<len(p):
-        c=p[ind]
-        if ind-1>=0 :
-            c+=p[ind-1]
-        if ind+1<len(p) :
-            c+=p[ind+1]
-
-        ans=max(ans, c)
-        ind+=2
-
-    return ans
-
-t=int(input())
-
-for _ in range(t):
-    n = int(input())
-    s = input()
-
-    ans = solution(n,s)
-
-    print(ans)
+    streaks=[]
+    startswith=True if s[0]=="1" else False
+    count,prev=0,s[0]
+    for i in s:
+        if(i==prev):
+            count+=1
+        else:
+            prev=i
+            streaks.append(count)
+            count=1
+    streaks.append(count)
+    if(len(streaks)==1):
+        return streaks[0]
+    if(len(streaks)<2):
+        return streaks[0]+streaks[1]
+    maxx=max(streaks[0]+streaks[1], streaks[-1]+streaks[-2])
+    n=len(streaks)
+    if(startswith):
+        for i in range(0,n-2,2):
+            maxx=max(streaks[i]+streaks[i+1]+streaks[i+2],maxx)
+    else:
+        for i in range(1,n-2,2):
+            maxx=max(streaks[i]+streaks[i+1]+streaks[i+2],maxx)
+    return maxx
